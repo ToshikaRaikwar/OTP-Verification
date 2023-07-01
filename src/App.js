@@ -45,7 +45,7 @@ const App = () => {
         window.confirmationResult = confirmationResult;
         setLoading(false);
         setShowOTP(true);
-        toast.success("OTP sended successfully!");
+        toast.success("OTP sent successfully!");
       })
       .catch((error) => {
         console.log(error);
@@ -68,22 +68,30 @@ const App = () => {
       });
   }
 
+  function redirectToChatbot() {
+    window.location.href = "https://polite-cajeta-e93915.netlify.app/";
+  }
+
   return (
-    <section className=" flex items-center justify-center h-screen">
+    <section className="flex items-center justify-center h-screen">
       <div>
         <Toaster toastOptions={{ duration: 4000 }} />
         <div id="recaptcha-container"></div>
         {user ? (
           <h2 className="text-center text-white font-medium text-2xl">
-             <button a href="https://polite-cajeta-e93915.netlify.app/"
-                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
-                >Start ChatBot</button>
-                
+            <button
+              onClick={redirectToChatbot}
+              className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+            >
+              Start ChatBot
+            </button>
           </h2>
         ) : (
           <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
             <h1 className="text-center leading-normal text-black font-medium text-3xl mb-6">
-              To use ChatBot <br />VERIFY
+              To use ChatBot
+              <br />
+              VERIFY
             </h1>
             {showOTP ? (
               <>
@@ -103,7 +111,7 @@ const App = () => {
                   otpType="number"
                   disabled={false}
                   autoFocus
-                  className="opt-container "
+                  className="opt-container"
                 ></OtpInput>
                 <button
                   onClick={onOTPVerify}
