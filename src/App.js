@@ -69,7 +69,7 @@ const App = () => {
   }
 
   function redirectToChatbot() {
-    window.location.href = "https://polite-cajeta-e93915.netlify.app/";
+    window.location.href = "https://chat-bot-pi-eight.vercel.app/";
   }
 
   return (
